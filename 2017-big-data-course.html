@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>BIG DATA Free <M></M>aterial | SparkAmplify</title>
+        <link rel="stylesheet" href="">
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.js"></script>
+        <script src="./jquery.serialize-object.min.js"></script>
+        <meta>
+        <style>
+            *{
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                font-family: 'Open Sans,sans-serif';
+            }
+            /* Let's get this party started */
+            ::-webkit-scrollbar {
+                width: 8px;
+                background-color: #F5F5F5;
+            }
+            
+            /* Track */
+            ::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                border: 1px solid #F5F5F5;
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+                background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, #35a5cf),
+									   color-stop(0.72, #1B5F86),
+									   color-stop(0.86, #002856));
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+            }
+            ::-webkit-scrollbar-thumb:window-inactive {
+                border: 2px solid transparent;
+                background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, #35a5cf),
+									   color-stop(0.72, #1B5F86),
+									   color-stop(0.86, #002856));
+            }
+            body {
+                background-color: #f3f3f3;
+            }
+            .header {
+                position: fixed;
+                width: 100%;
+                height: 80px;
+                background: rgba(0,40,86,1);
+                background: -moz-linear-gradient(-45deg, rgba(0,40,86,1) 0%, rgba(53,148,179,1) 100%);
+                background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(0,40,86,1)), color-stop(100%, rgba(53,148,179,1)));
+                background: -webkit-linear-gradient(-45deg, rgba(0,40,86,1) 0%, rgba(53,148,179,1) 100%);
+                background: -o-linear-gradient(-45deg, rgba(0,40,86,1) 0%, rgba(53,148,179,1) 100%);
+                background: -ms-linear-gradient(-45deg, rgba(0,40,86,1) 0%, rgba(53,148,179,1) 100%);
+                background: linear-gradient(135deg, rgba(0,40,86,1) 0%, rgba(53,148,179,1) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002856', endColorstr='#3594b3', GradientType=1 );
+            }
+            .header img {
+                height: 60%;
+                margin-top: 18px;
+            }
+            .container {
+                margin-top: 80px;
+                float: right;
+                padding: 30px;
+                height: 600px;
+            }
+            .summary, .download {
+                float: left;
+                width: 45%;
+                height: 200px;
+                margin-left: 70px;
+            }
+            #bigDataCourse .error {
+                color: red;
+            }
+
+            .footer {
+                position: absolute;
+                top: 100%;
+                background-color: #fff;
+                color: #002856;
+                height: 250px;
+            }
+            
+        </style>
+        <script>
+            $(document).ready(function () {
+
+                $('#bigDataCourse').validate({ // initialize the plugin
+                    rules: {
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        name: {
+                            required: true,
+                            minlength: 2
+                        },
+                        company: {
+                            required: true
+                        }
+                    },
+                    messages: {
+
+                    },
+                    highlight: function (element) {
+                        $(element).parent().addClass('error')
+                    },
+                    unhighlight: function (element) {
+                        $(element).parent().removeClass('error')
+                    }
+                });
+
+                $('#bigDataCourse input').on('keyup blur', function() {
+                    if ($('#bigDataCourse').valid()) {
+                        $('button').prop('disabled', false);
+                    } else {
+                        $('button').prop('disabled', 'disabled');
+                    }
+                });
+
+                var $form = $('form#bigDataCourse'),
+                    url = 'https://script.google.com/macros/u/3/s/AKfycbx9Xhmk020Apr_pdhvUYRB35gAUBw3U5QdRpgNfObm9jiyEPlw/exec'
+
+                $('#formBtn').on('click', function(e) {
+                    e.preventDefault();
+                    var jqxhr = $.ajax({
+                        url: url,
+                        method: "GET",
+                        dataType: 'json',
+                        data: $form.serializeObject(),
+                        success: function () {
+                            console.log(jqxhr);
+                        }
+                    });
+                })
+
+            });
+        </script>
+    </head>
+    <body style="height: 1000px">
+        <div class="header">
+            <a href="/"><img src="img/f6469afc73.svg" alt="logo" /></a>
+        </div>
+        <div class="container">
+            <div class="summary">
+                <h1>2017 BIG DATA Free eBook New Release! (Limited)</h1>
+            </div>
+            <div class="download">
+                <form action="https://formspree.io/jiunyi.yang.abao@gmail.com" method="POST" id="bigDataCourse">
+                    <p>
+                        Your Email: 
+                        <input name="email" type="email" required />
+                    </p>
+                    <p>
+                        Name: 
+                        <input name="name" type="text" required />
+                    </p>
+                    <p>
+                        Company Field:
+                        <select name="company" type="text" required>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>                                                        
+                        </select>
+                    </p>
+                    
+                    <button id="formBtn" type="submit" disabled="disabled" onclick="window.open('enrollments.csv')">Submit to Free Download</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+
+        </div>
+    </body>
+</html>
