@@ -84,7 +84,7 @@
         </style>
         <script>
             $('document').ready(function () {
-                $('#mc-embedded-subscribe-form input').on('keyup blur', function() {
+                $('#mc-embedded-subscribe-form').on('mouseup', function() {
                     if ($('#mc-embedded-subscribe-form').valid()) {
                         $('.button').prop('disabled', false);
                         // console.log('s');
@@ -92,12 +92,15 @@
                         $('#mc-embedded-subscribe-form').submit();
                         // console.log('sent');
                         $('#mc-embedded-subscribe-form').attr('action', 'https://sparkamplify.us17.list-manage.com/subscribe/post?u=f272bb416de70cd8ba40364c6&amp;id=45110c233a');
+                        $('.button').click(function() {
+                            $('#mc-embedded-subscribe-form').attr('id', 'mc-embedded-subscribe-form-done');
+                        });
                     } else {
                         $('.button').prop('disabled', 'disabled');
                         // console.log('f');
                     }
                 });
-                
+                    
             });
         </script>
     </head>
@@ -140,17 +143,23 @@
                 </label>
                     <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
                 </div>
+                
                 <div class="mc-field-group">
-                    <label for="mce-NAME">Full Name  <span class="asterisk">*</span>
+                    <label for="mce-COMURL">Your Company Website  <span class="asterisk">*</span>
+                </label>
+                    <input type="url" value="" name="COMURL" class="required url" id="mce-COMURL">
+                </div>
+                <div class="mc-field-group">
+                    <label for="mce-NAME">Your Full Name  <span class="asterisk">*</span>
                 </label>
                     <input type="text" value="" name="NAME" class="required" id="mce-NAME">
                 </div>
-                
+
                 <div class="mc-field-group">
                     <label for="mce-INDUSTRY">Your Industry Type  <span class="asterisk">*</span>
                 </label>
                     <select name="INDUSTRY" class="required" id="mce-INDUSTRY">
-                        <!--<option value=""></option>-->
+                        <option value=""></option>
                         <option value="Sales &amp; Marketing Agency">Sales &amp; Marketing Agency</option>
                         <option value="Hardware">Hardware</option>
                         <option value="Software as a service (SaaS)">Software as a service (SaaS)</option>
@@ -159,11 +168,6 @@
                         <option value="Manufacturing">Manufacturing</option>
                         <option value="Others">Others</option>
                     </select>
-                </div>
-                <div class="mc-field-group">
-                    <label for="mce-COMURL">Company Website  <span class="asterisk">*</span>
-                </label>
-                    <input type="url" value="" name="COMURL" class="required url" id="mce-COMURL">
                 </div>
                     <div id="mce-responses" class="clear">
                         <div class="response" id="mce-error-response" style="display:none"></div>
