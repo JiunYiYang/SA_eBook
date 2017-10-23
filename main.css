@@ -83,6 +83,9 @@ body {
 .highlights, .detail {
     margin: 10px 0px;
 }
+.highlights p {
+    font-size: 20px;
+}
 .detail {
     display: inline-flex;
 }
