@@ -2,7 +2,7 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', 'Microsoft Jhenghei';
     
 }
 /* Let's get this party started */
@@ -100,14 +100,18 @@ body {
 #mce-NAME-error, #mce-EMAIL-error, #mce-COMNAME-error, #mce-INDUSTRY-error, #mc_embed_signup label.error  {
     display: none !important;
 }
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+.footer-section footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
     background-color: #fff;
     color: #002856;
-    text-align: right;
     line-height: 36px;
     font-weight: 500;
+    padding: 0px 10px;
+}
+.footer-section img {
+    width: 150px;
+    margin: 0 10px;
 }
